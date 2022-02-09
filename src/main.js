@@ -1,4 +1,4 @@
-"use strict";
+"use strcit";
 
 const ENTER_KEY = 13;
 const currentList = document.querySelector(".todo-list");
