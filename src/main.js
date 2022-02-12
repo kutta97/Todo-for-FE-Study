@@ -8,6 +8,24 @@ let todos = [];
 let id = 0;
 
 input.addEventListener("keyup", enterkey, false);
+currentList.addEventListener("click", handler, false);
+
+function handler(event) {
+  const id = event.target.parentNode.dataset.id;
+
+  if (event.target.className === "complete") {
+    if (event.target.checked) {
+      completeTodo(id, true);
+    } else {
+      completeTodo(id, false);
+    }
+    return;
+  }
+  if (event.target.className === "delete") {
+    deleteTodo(id);
+    return;
+  }
+}
 
 function enterkey(event) {
   if (event.keyCode == ENTER_KEY) {
@@ -40,4 +58,12 @@ function addTodo(value) {
   currentList.innerHTML = toDoItem(todos);
 
   id++;
+}
+
+function completeTodo(id, check) {
+  console.log(`check ${id}!`);
+}
+
+function deleteTodo(id) {
+  console.log(`delete ${id}!`);
 }
