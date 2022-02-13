@@ -61,9 +61,14 @@ function addTodo(value) {
 }
 
 function completeTodo(id, check) {
-  console.log(`check ${id}!`);
+  todos.forEach((todo) => {
+    if (todo.id == id) {
+      todo.completed = check;
+    }
+  });
 }
 
 function deleteTodo(id) {
-  console.log(`delete ${id}!`);
+  todos = todos.filter((todo) => todo.id != id);
+  currentList.innerHTML = toDoItem(todos);
 }
