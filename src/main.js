@@ -66,6 +66,13 @@ function completeTodo(id, check) {
       todo.completed = check;
     }
   });
+
+  const todo = document.querySelector(`[data-id="${id}"]`);
+  if (check) {
+    todo.style.textDecorationLine = "line-through";
+  } else {
+    todo.style.textDecorationLine = "";
+  }
 }
 
 function deleteTodo(id) {
